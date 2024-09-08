@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comandes</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/view_data.css') }}">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Llista de Comandes</h1>
+        <table class="commands-table">
+            <thead>
+                <tr>
+                    <th>Sessió</th>
+                    <th>Nom del fitxer</th>
+                    <th>Data de creació</th>
+                    <th>Correu electrònic</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for command in commands %}
+                <tr>
+                    <td>{{ command.print_sess }}</td>
+                    <td>{{ command.filename }}</td>
+                    <td>{{ command.date_created }}</td>
+                    <td>{{ command.email }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>

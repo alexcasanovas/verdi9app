@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="{{url_for('static', filename='styles/lang.css')}}" rel="stylesheet"/>
+    <title>Language selection</title>
+</head>
+<body>
+    <!-- Barra de navegació -->
+    <nav class="navbar navbar-light custom-navbar">
+        <a class="navbar-brand" href="#">Verdi9 PrintShop <span class="text-muted">/ Idioma</span></a>
+    </nav>
+    <!-- Contenidor dels passos -->
+    <div class="container mt-5">
+        <div class="title-box text-center">
+            <h2>{{a}}</h2>
+        </div>
+        <div id="wrapper">
+            <div class="window">
+                <form action="#" method="post">
+                    <button class="btn btn-outline-light mx-2" type="submit" name="lang" value="catalan">
+                        <img src="./static/images/catalan.png" alt="Català" class="img-responsive"/>
+                    </button>
+                </form>
+            </div>
+            <div class="window">
+                <form action="#" method="post">
+                    <button class="btn btn-outline-light mx-2" type="submit" name="lang" value="basque">
+                        <img src="./static/images/basque.png" alt="Euskera" class="img-responsive"/>
+                    </button>
+                </form>
+            </div>
+            <div class="window">
+                <form action="#" method="post">
+                    <button class="btn btn-outline-light mx-2" type="submit" name="lang" value="english">
+                        <img src="./static/images/english.png" alt="English" class="img-responsive"/>
+                    </button>
+                </form>
+            </div>
+            <div class="window">
+                <form action="#" method="post">
+                    <button class="btn btn-outline-light mx-2" type="submit" name="lang" value="spanish">
+                        <img src="./static/images/spanish.png" alt="Español" class="img-responsive"/>
+                    </button>
+                </form>
+            </div>
+            <div class="window">
+                <form action="#" method="post">
+                    <button class="btn btn-outline-light mx-2" type="submit" name="lang" value="french">
+                        <img src="./static/images/french.png" alt="Français" class="img-responsive"/>
+                    </button>
+                </form>
+            </div>
+            <div class="window">
+                <form action="#" method="post">
+                    <button class="btn btn-outline-light mx-2" type="submit" name="lang" value="german">
+                        <img src="./static/images/german.png" alt="Deutsch" class="img-responsive"/>
+                    </button>
+                </form>
+            </div>
+            <!-- Afegeix més botons d'idioma aquí fins a tenir 21 -->
+            <div class="window">
+                <form action="#" method="post">
+                    <button class="btn btn-outline-light mx-2" type="submit" name="lang" value="italian">
+                        <img src="./static/images/italian.png" alt="Italiano" class="img-responsive"/>
+                    </button>
+                </form>
+            </div>
+            <div class="window">
+                <form action="#" method="post">
+                    <button class="btn btn-outline-light mx-2" type="submit" name="lang" value="portuguese">
+                        <img src="./static/images/portuguese.png" alt="Português" class="img-responsive"/>
+                    </button>
+                </form>
+            </div>
+            <div class="window">
+                <form action="#" method="post">
+                    <button class="btn btn-outline-light mx-2" type="submit" name="lang" value="dutch">
+                        <img src="./static/images/dutch.png" alt="Nederlands" class="img-responsive"/>
+                    </button>
+                </form>
+            </div>
+            <div class="window">
+                <form action="#" method="post">
+                    <button class="btn btn-outline-light mx-2" type="submit" name="lang" value="zh-CN">
+                        <img src="./static/images/zh-CN.png" alt="中文" class="img-responsive"/>
+                    </button>
+                </form>
+            </div>
+            <div class="window">
+                <form action="#" method="post">
+                    <button class="btn btn-outline-light mx-2" type="submit" name="lang" value="japanese">
+                        <img src="./static/images/japanese.png" alt="日本語" class="img-responsive"/>
+                    </button>
+                </form>
+            </div>
+            <div class="window">
+                <form action="#" method="post">
+                    <button class="btn btn-outline-light mx-2" type="submit" name="lang" value="danish">
+                        <img src="./static/images/danish.png" alt="Dansk" class="img-responsive"/>
+                    </button>
+                </form>
+            </div>
+            <div class="window">
+                <form action="#" method="post">
+                    <button class="btn btn-outline-light mx-2" type="submit" name="lang" value="greek">
+                        <img src="./static/images/greek.png" alt="Greek" class="img-responsive"/>
+                    </button>
+                </form>
+            </div>
+            <div class="window">
+                <form action="#" method="post">
+                    <button class="btn btn-outline-light mx-2" type="submit" name="lang" value="arabic">
+                        <img src="./static/images/arabic.png" alt="Arabic" class="img-responsive"/>
+                    </button>
+                </form>
+            </div>
+            <div class="window">
+                <form action="#" method="post">
+                    <button class="btn btn-outline-light mx-2" type="submit" name="lang" value="norwegian">
+                        <img src="./static/images/norwegian.png" alt="Norway" class="img-responsive"/>
+                    </button>
+                </form>
+            </div>
+            <div class="window">
+                <form action="#" method="post">
+                    <button class="btn btn-outline-light mx-2" type="submit" name="lang" value="filipino">
+                        <img src="./static/images/filipino.png" alt="Tagalog" class="img-responsive"/>
+                    </button>
+                </form>
+            </div>
+            <div class="window">
+                <form action="#" method="post">
+                    <button class="btn btn-outline-light mx-2" type="submit" name="lang" value="gd">
+                        <img src="./static/images/gd.png" alt="Scottish" class="img-responsive"/>
+                    </button>
+                </form>
+            </div>
+            <div class="window">
+                <form action="#" method="post">
+                    <button class="btn btn-outline-light mx-2" type="submit" name="lang" value="serbian">
+                        <img src="./static/images/serbian.png" alt="Serbia" class="img-responsive"/>
+                    </button>
+                </form>
+            </div>
+            <div class="window">
+                <form action="#" method="post">
+                    <button class="btn btn-outline-light mx-2" type="submit" name="lang" value="swedish">
+                        <img src="./static/images/swedish.png" alt="Swedish" class="img-responsive"/>
+                    </button>
+                </form>
+            </div>
+            <div class="window">
+                <form action="#" method="post">
+                    <button class="btn btn-outline-light mx-2" type="submit" name="lang" value="turkish">
+                        <img src="./static/images/turkish.png" alt="Turkish" class="img-responsive"/>
+                    </button>
+                </form>
+            </div>
+            <div class="window">
+                <form action="#" method="post">
+                    <button class="btn btn-outline-light mx-2" type="submit" name="lang" value="ukrainian">
+                        <img src="./static/images/ukrainian.png" alt="Ukraine" class="img-responsive"/>
+                    </button>
+                </form>
+            </div>
+            <div class="window">
+                <form action="#" method="post">
+                    <button class="btn btn-outline-light mx-2" type="submit" name="lang" value="welsh">
+                        <img src="./static/images/welsh.png" alt="Welsh" class="img-responsive"/>
+                    </button>
+                </form>
+            </div>
+            <div class="window">
+                <form action="#" method="post">
+                    <button class="btn btn-outline-light mx-2" type="submit" name="lang" value="croatian">
+                        <img src="./static/images/croatian.png" alt="Croatia" class="img-responsive"/>
+                    </button>
+                </form>
+            </div>
+            <div class="window">
+                <form action="#" method="post">
+                    <button class="btn btn-outline-light mx-2" type="submit" name="lang" value="polish">
+                        <img src="./static/images/polish.png" alt="Polish" class="img-responsive"/>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"></script>
+    <script src="{{url_for('static', filename='scripts/script.js')}}"></script>
+</body>
+</html>

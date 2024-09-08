@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap');
+
+body {
+    background-color: #e9ecef;
+    font-family: 'Nunito', sans-serif;
+    text-align: justify;
+}
+
+.navbar.custom-navbar {
+    padding: 5px 15px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-left: 10px;
+}
+
+.navbar-brand .text-muted {
+    font-size: 1rem;
+    font-weight: 400;
+    margin-left: 5px;
+}
+
+.rounded-circle {
+    border: 2px solid #ff5a5f;
+    margin-right: 10px;
+}
+
+.container {
+    max-width: 1200px;
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    margin: 30px auto;
+}
+
+h2, .step-title {
+    color: #343a40;
+    font-weight: 700;
+}
+
+.step {
+    margin-bottom: 30px;
+    display: flex;
+    align-items: flex-start;
+}
+
+.step:last-child {
+    border-bottom: none;
+}
+
+.step-icon, .qr-code {
+    display: block;
+    margin: 20px auto 0;  /* Espai afegit entre el text i les icones */
+    width: 50px;
+    height: 50px;
+}
+
+.qr-code {
+    width: 120px;
+    height: 120px;
+    border-radius: 10px;
+}
+
+.step-title {
+    font-size: 1rem;
+    text-align: justify;
+    margin-bottom: 10px; /* Espai afegit entre el text i les icones */
+}
+
+.step-circle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #ff5a5f;
+    color: #ffffff;
+    text-align: center;
+    line-height: 30px;
+    font-size: 1rem;
+    margin-right: 10px;
+    flex-shrink: 0;
+}
+
+.step-content {
+    flex-grow: 1;
+}
+
+.step-form {
+    margin-top: 20px; /* Espai afegit entre el text i el formulari */
+}
+
+.btn-danger {
+    background-color: #ff5a5f;
+    border-color: #ff5a5f;
+}
+
+.btn-danger:hover {
+    background-color: #e04848;
+    border-color: #e04848;
+}
+
+.form-text {
+    color: #495057;
+}
+
+.flashes {
+    list-style-type: none;
+    padding: 0;
+}
+
+.flashes li {
+    margin-bottom: 10px;
+}
+
+.flashes li.success {
+    color: green;
+}
+
+.flashes li.error {
+    color: red;
+}
+
+@media (min-width: 768px) {
+    .step {
+        display: flex;
+        align-items: flex-start;
+    }
+    .step-circle, .step-content {
+        align-self: flex-start;
+    }
+}

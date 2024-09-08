@@ -1,0 +1,123 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Nunito', sans-serif;
+  background-color: #e9ecef;
+  position: relative;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+}
+
+.background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  z-index: -2;
+}
+
+.background-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.65);
+  z-index: -1;
+}
+
+.text-center {
+  text-align: center;
+  position: relative;
+  top: -50px; /* Afegeix espai cap amunt per al text */
+}
+
+.main-title {
+  color: #ffffff;
+  font-weight: 900;
+  font-size: 4rem;
+  line-height: 1.2;
+  margin-bottom: 20px; /* Redueix l'espai entre el títol i el botó */
+  margin-top: 50px;
+}
+
+.main-title span {
+  display: block;
+}
+
+button.btn-primary.btn-lg {
+  background-color: #ff5a5f;
+  border-color: #ff5a5f;
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 120px; /* Afegeix espai cap avall per al botó */
+  margin-left: 100px;
+  margin-bottom: 0px;
+  color: white;
+  animation: pulsate 2s infinite;
+}
+
+button.btn-primary.btn-lg img.button-icon {
+  width: 70%;
+  height: 70%;
+}
+
+@keyframes pulsate {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+button.btn-primary.btn-lg:hover {
+  background-color: #e04848;
+  border-color: #e04848;
+}
+
+@media (max-width: 768px) {
+  .main-title {
+    font-size: 3rem;
+  }
+
+  button.btn-primary.btn-lg {
+    width: 120px;
+    height: 120px;
+  }
+
+  button.btn-primary.btn-lg img.button-icon {
+    width: 50%;
+    height: 50%;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-title {
+    font-size: 2rem;
+  }
+
+  button.btn-primary.btn-lg {
+    width: 100px;
+    height: 100px;
+  }
+
+  button.btn-primary.btn-lg img.button-icon {
+    width: 45%;
+    height: 45%;
+  }
+}
+

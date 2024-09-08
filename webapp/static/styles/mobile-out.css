@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap');
+
+body {
+    background-color: #e9ecef;
+    font-family: 'Nunito', sans-serif;
+    text-align: justify;
+}
+
+.navbar.custom-navbar {
+    padding: 5px 15px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-left: 10px;
+}
+
+.navbar-brand .text-muted {
+    font-size: 1rem;
+    font-weight: 400;
+    margin-left: 5px;
+}
+
+.rounded-circle {
+    border: 2px solid #ff5a5f;
+    margin-right: 10px;
+}
+
+.container {
+    max-width: 800px;
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    margin: 30px auto;
+    text-align: center;
+}
+
+h1, h2, .step-title {
+    color: #343a40;
+    font-weight: 700;
+}
+
+h2 {
+    margin-bottom: 40px;
+    font-size: 1.5rem;
+}
+
+.step {
+    margin-bottom: 40px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.step:last-child {
+    margin-bottom: 0;
+}
+
+.step-icon {
+    display: block;
+    margin: 40px auto 0;
+    width: 50px;
+    height: 50px;
+}
+
+.step-title {
+    font-size: 1rem;
+    text-align: justify;
+    margin-bottom: 10px;
+}
+
+.step-circle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #ff5a5f;
+    color: #ffffff;
+    text-align: center;
+    line-height: 30px;
+    font-size: 1rem;
+    margin-right: 10px;
+    flex-shrink: 0;
+}
+
+.step-content {
+    flex-grow: 1;
+    max-width: calc(100% - 50px);
+}
+
+.btn-danger {
+    background-color: #ff5a5f;
+    border-color: #ff5a5f;
+}
+
+.btn-danger:hover {
+    background-color: #e04848;
+    border-color: #e04848;
+}
+
+.form-text {
+    color: #495057;
+}
+
+@media (max-width: 767px) {
+    .container {
+        padding: 20px;
+        max-width: 100%;
+    }
+
+    .step-circle {
+        margin-bottom: 10px;
+    }
+
+    .step-content {
+        max-width: 100%;
+        text-align: center;
+    }
+}

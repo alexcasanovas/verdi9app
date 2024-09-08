@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    background-color: #e9ecef;
+    font-family: 'Nunito', sans-serif;
+    text-align: justify;
+    overflow: hidden;
+}
+
+.navbar.custom-navbar {
+    padding: 5px 15px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-left: 10px;
+}
+
+.navbar-brand .text-muted {
+    font-size: 1rem;
+    font-weight: 400;
+    margin-left: 5px;
+}
+
+.container {
+    max-width: 800px;
+    max-height: 600px;
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    margin: 30px auto;
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+}
+
+.title-box {
+    background-color: #ff5a5f;
+    color: white;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+h1, h2 {
+    color: #ffffff; /* Text del títol en blanc */
+    font-weight: 700;
+}
+
+h1 {
+    margin: 30px 0;
+}
+
+h2 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.d-grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.language-selection {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#wrapper {
+    margin: 0 auto;
+    box-sizing: border-box;
+    width: 100%;
+    height: calc(100vh - 300px);
+    overflow-y: scroll; /* Ajustat a scroll */
+    white-space: normal;
+    position: relative;
+    scroll-behavior: smooth;
+}
+
+.window {
+    display: inline-block;
+    margin: 1vh;
+    width: calc(30% - 2vh);
+    height: calc(30% - 2vh);
+    overflow: hidden;
+    transition: margin 0.5s ease, width 0.5s ease, height 0.5s ease, filter 0.5s ease;
+    border-radius: 8px; /* Vores arrodonides per als botons */
+}
+
+.window:hover {
+    filter: none;
+}
+
+img {
+    width: 60%; /* Imatges més petites dins dels botons */
+    height: 60%;
+    display: block;
+    object-fit: center;
+    margin: auto;
+    filter: none; /* Eliminar enfosquiment */
+}
+
+#wrapper::-webkit-scrollbar {
+    background: #e9ecef;
+    max-width: 12px;
+    border-radius: 10px;
+}
+
+#wrapper::-webkit-scrollbar-thumb {
+    background: #ff5a5f;
+    border-radius: 10px;
+}
+
+#wrapper::-webkit-scrollbar-thumb:hover {
+    background: #e04848;
+}

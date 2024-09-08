@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="{{url_for('static', filename='styles/style-mobile1.css')}}" rel="stylesheet"/>
+    <title>Upload files</title>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-light custom-navbar">
+        <a class="navbar-brand" href="#">Verdi9 PrintShop <span class="text-muted">/ {{h}}</span></a>
+        <div class="d-flex align-items-center">
+            <img src="{{lang_icon}}" alt="Idioma" class="rounded-circle" style="width: 30px; height: 30px;">
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <form id="uploadForm" action="#" method="post" enctype="multipart/form-data" class="mt-4" onsubmit="return validateForm()">
+            <div class="mb-5 d-flex justify-content-center">
+                <div class="step-content">
+                    <h3 class="step-title">{{b}}</h3>
+                    <label for="exampleInputEmail1" class="form-label">{{a}}</label>
+                    <input type="email" class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="example@mail.com" required>
+                    <div id="emailHelp" class="form-text">{{d}}</div>
+                </div>
+            </div>
+            <div class="mb-5 d-flex justify-content-center">
+                <div class="step-content">
+                    <h3 class="step-title">{{c}}</h3>
+                    <div class="d-flex align-items-center" style="width: 100%;">
+                        <!-- Botó personalitzat -->
+                        <label class="custom-file-upload btn btn-outline-secondary me-2" style="flex: 0.25;">
+                            {{i}}
+                            <input type="file" name="file" id="formFileMultiple" multiple onchange="updateFileList()" style="display: none;">
+                        </label>
+                        <!-- Text que mostra el fitxer seleccionat o el text per defecte -->
+                        <span id="file-chosen" class="form-control" style="flex: 0.75;">{{j}}</span>
+                    </div>
+                    <div id="fileHelp" class="form-text">{{f}}</div>
+                    <div id="fileList" class="mt-3"></div>
+                </div>
+            </div>
+            <div class="d-flex justify-content-center">
+                <button type="submit" class="btn btn-danger">{{g}}</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"></script>
+    <script>
+        let fileInput = document.getElementById('formFileMultiple');
+        const MAX_FILE_SIZE = 10 * 1024 * 1024; // 10 MB
+        const progressBarMap = new Map(); // Guardar el estat de les barres de progrés
+    
+        function isPDF(file) {
+            return file.name.endsWith('.pdf');
+        }
+    
+        function updateFileList() {
+            const fileList = document.getElementById('file-chosen');
+            const fileListContainer = document.getElementById('fileList');
+            fileListContainer.innerHTML = '';
+    
+            if (fileInput.files.length === 0) {
+                fileList.innerHTML = "{{j}}";
+            } else if (fileInput.files.length === 1) {
+                fileList.textContent = fileInput.files[0].name;
+            } else {
+                fileList.innerHTML = `${fileInput.files.length} {{l}}`;
+            }
+    
+            for (const file of fileInput.files) {
+                const fileItem = document.createElement('div');
+                fileItem.className = 'file-item mb-2';
+                const progressBarId = `progress-${file.name.replace(/\s+/g, '-')}`;
+                const isTooLarge = file.size > MAX_FILE_SIZE;
+                const isNotPDF = !isPDF(file);
+    
+                fileItem.innerHTML = `
+                    <div class="d-flex justify-content-between align-items-center mb-1 ${isTooLarge || isNotPDF ? 'text-danger' : ''}">
+                        <span>${file.name}</span>
+                        <button type="button" class="btn btn-outline-danger btn-sm" onclick="removeFile('${file.name}')">{{k}}</button>
+                    </div>
+                    <div class="progress">
+                        <div id="${progressBarId}" class="progress-bar" role="progressbar" style="width: ${progressBarMap.has(file.name) ? progressBarMap.get(file.name) : '0'}%;" aria-valuenow="${progressBarMap.has(file.name) ? progressBarMap.get(file.name) : '0'}" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                    ${isNotPDF ? '<p class="text-danger">{{m}}</p>' : ''}
+                    <hr>
+                `;
+                fileListContainer.appendChild(fileItem);
+    
+                if (!isTooLarge && !isNotPDF && !progressBarMap.has(file.name)) {
+                    simulateFileUpload(progressBarId, file.name);
+                } else if (progressBarMap.get(file.name) === 100) {
+                    document.getElementById(progressBarId).parentElement.style.display = 'none';
+                }
+    
+                if (isNotPDF) {
+                    document.getElementById(progressBarId).parentElement.style.display = 'none'; // Ocultar la barra de progrés
+                }
+            }
+        }
+    
+        function removeFile(fileName) {
+            progressBarMap.delete(fileName); // Eliminar el fitxer de la llista de barres de progrés
+            const dataTransfer = new DataTransfer();
+            for (const file of fileInput.files) {
+                if (file.name !== fileName) {
+                    dataTransfer.items.add(file);
+                }
+            }
+            fileInput.files = dataTransfer.files;
+            updateFileList();
+        }
+    
+        function simulateFileUpload(progressBarId, fileName) {
+            const progressBar = document.getElementById(progressBarId);
+            let progress = progressBarMap.get(fileName) || 0;
+            const interval = setInterval(() => {
+                progress += 10;
+                progressBar.style.width = progress + '%';
+                progressBar.setAttribute('aria-valuenow', progress);
+                progressBarMap.set(fileName, progress); // Guardar el progrés actual
+                if (progress >= 100) {
+                    clearInterval(interval);
+                    progressBar.parentElement.style.display = 'none'; // Ocultar la barra de progrés
+                }
+            }, 500);
+        }
+    
+        function validateForm() {
+            let isValid = true;
+            for (const file of fileInput.files) {
+                if (file.size > MAX_FILE_SIZE || !isPDF(file)) {
+                    isValid = false;
+                    break;
+                }
+            }
+            if (!isValid) {
+                alert('Un o més fitxers són massa grans o no tenen el format .pdf. Si us plau, revisa els fitxers abans de continuar.');
+            }
+            return isValid;
+        }
+    </script>
+    
+</body>
+</html>
+
